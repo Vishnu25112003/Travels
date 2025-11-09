@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Button from "../ui/Button";
+import Button from "../../components/ui/Button";
 import type { Swiper as SwiperType } from "swiper";
 import { Navigation, Pagination, Autoplay, A11y } from "swiper/modules";
 // @ts-expect-error: CSS side-effect imports for Swiper styles
@@ -75,7 +75,7 @@ const destinationsData: Destination[] = [
   },
 ];
 
-import SectionTitle from "../ui/SectionTitle";
+import SectionTitle from "../../components/ui/SectionTitle";
 
 const Packages: React.FC = () => {
   const swiperRef = useRef<SwiperType | null>(null);

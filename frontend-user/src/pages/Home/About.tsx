@@ -1,10 +1,10 @@
-import SectionTitle from "../ui/SectionTitle";
+import SectionTitle from "../../components/ui/SectionTitle";
 
 const About: React.FC = () => {
   return (
     <section id="about" className="py-20 bg-gradient-to-b from-white to-accent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<SectionTitle title="About Our Fleet" subtitle="Discover our premium collection of vehicles designed for unforgettable journeys" />
+        <SectionTitle title="About Our Fleet" subtitle="Discover our premium collection of vehicles designed for unforgettable journeys" />
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Image */}

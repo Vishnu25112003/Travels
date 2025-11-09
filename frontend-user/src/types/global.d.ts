@@ -11,6 +11,13 @@ declare global {
         autoplay?: boolean;
         loop?: boolean;
       };
+      'dotlottie-player': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        src?: string;
+        background?: string;
+        speed?: string | number;
+        autoplay?: boolean;
+        loop?: boolean;
+      };
     }
   }
 }

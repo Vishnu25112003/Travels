@@ -1,16 +1,20 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Destinations", href: "#destinations" },
-    { label: "Gallery", href: "#destinations" },
-    { label: "Contacts", href: "#contact" },
+    { label: "Home", to: "/" },
+    { label: "About", to: "/about" },
+    { label: "Destinations", to: "/destinations" },
+    { label: "Gallery", to: "/gallery" },
+    { label: "Contacts", to: "/contacts" },
   ] as const;
+
+  const baseLinkClass =
+    "relative text-gray-700 font-medium transition-colors duration-200 hover:text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40";
 
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 shadow-xl md:shadow-lg ">
@@ -18,20 +22,23 @@ const Navigation: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">
-<Logo size={40} />
+            <Logo size={40} />
             {/* <span className="font-bold text-xl text-secondary hidden sm:inline">Varsha Travels</span> */}
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a
+              <NavLink
                 key={item.label}
-                href={item.href}
-                className="relative text-gray-700 font-medium transition-colors duration-200 hover:text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                to={item.to}
+                className={({ isActive }) =>
+                  `${baseLinkClass} ${isActive ? "text-primary after:w-full" : ""}`
+                }
+                end={item.to === "/"}
               >
                 {item.label}
-              </a>
+              </NavLink>
             ))}
           </div>
 
@@ -68,9 +75,9 @@ const Navigation: React.FC = () => {
           }`}
         >
           {navItems.map((item, idx) => (
-            <a
+            <NavLink
               key={item.label}
-              href={item.href}
+              to={item.to}
               className={`${
                 isOpen
                   ? "opacity-100 translate-y-0"
@@ -78,9 +85,10 @@ const Navigation: React.FC = () => {
               } relative block px-4 py-2 text-gray-700/90 bg-white/0 rounded-lg transition-all duration-300 ease-out hover:bg-gray-100 hover:text-primary hover:translate-x-1 focus:bg-gray-100 active:bg-gray-100 after:absolute after:left-4 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full focus:after:w-full active:after:w-full`}
               style={{ transitionDelay: isOpen ? `${idx * 40}ms` : "0ms" }}
               onClick={() => setIsOpen(false)}
+              end={item.to === "/"}
             >
               {item.label}
-            </a>
+            </NavLink>
           ))}
         </div>
       </div>
