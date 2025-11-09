@@ -1,6 +1,8 @@
 import Button from "../../components/ui/Button";
 import '@dotlottie/player-component';
 
+const Player = 'dotlottie-player' as any;
+
 const Hero: React.FC = () => {
   return (
     <section id="home" className="relative overflow-hidden bg-gradient-to-b from-white via-accent/40 to-white">
@@ -57,14 +59,14 @@ const Hero: React.FC = () => {
               {/* glow */}
               <div aria-hidden className="absolute inset-0 m-auto h-60 w-60 md:h-80 md:w-80 rounded-full bg-primary/20 blur-3xl" />
               <div className="relative w-full max-w-lg aspect-[4/3] rounded-3xl border bg-white/70 backdrop-blur shadow-2xl overflow-hidden">
-                <dotlottie-player
-                  class="block w-full h-full"
+                <Player
+                  className="block w-full h-full"
                   src="https://assets10.lottiefiles.com/packages/lf20_jcikwtux.json"
                   background="transparent"
                   speed="1"
                   autoplay
                   loop
-                ></dotlottie-player>
+                />
 
                 {/* glass info bar */}
                 <div className="absolute left-1/2 -translate-x-1/2 bottom-3 flex items-center gap-2 rounded-xl bg-white/80 backdrop-blur px-3 py-2 shadow border">

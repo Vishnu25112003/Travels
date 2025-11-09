@@ -2,11 +2,7 @@ import React from "react";
 import Button from "../ui/Button";
 import {
   CheckCircle2,
-  XCircle,
-  Fuel,
-  Gauge,
-  Users,
-  Luggage,
+  XCircle
 } from "lucide-react";
 import type { Vehicle } from "./vehicles/VehicleTypes";
 
